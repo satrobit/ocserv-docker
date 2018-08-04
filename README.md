@@ -4,7 +4,21 @@ You can use this repository to deploy ocserv and use it inside Iran.
 
  - Install Docker 1.0+
  - `cd ~;git clone https://github.com/satrobit/ocserv-docker.git`
- - `docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp wppurking/ocserv`
+
+Run:
+
+    docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp wppurking/ocserv
+   
+   If you don't want to route the traffic inside Iran then:
+   
+
+    docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv_iran:/etc/ocserv -p 443:443/tcp wppurking/ocserv
+ 
+
+> Be aware that subnets in the ocserv.conf file are the result of merging CIDRS and for performance reason contain IPS from other CIDRs so don't use this for anything important!
+> 
+> To make sure you're not leaking any information inside Iran use the default ocserv.conf
+
  ## Usage
  -  Use the default users to connect. (wyatt:616 holly:525)
  - If iptables is enabled make sure both tcp and udp are open to the public on port 443.
@@ -29,7 +43,7 @@ Open `./ocserv/ocpasswd` and remove the lines containing default usernames.
  ## To-Do
  
  - [x] Translate README.md
- - [ ] Add excluded Iranian IPs to ocserv.conf
+ - [x] Add excluded Iranian IPs to ocserv.conf
 
  ## Information
 * Box Size: 164 MB   (originally 380+ MB)
