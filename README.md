@@ -2,13 +2,29 @@
 You can use this repository to deploy ocserv and use it inside Iran.
 ## Deploy
 
- 1. Install Docker 1.0+
- 2. `cd ~;git clone https://github.com/satrobit/ocserv-docker.git`
- 3. `docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp wppurking/ocserv`
+ - Install Docker 1.0+
+ - `cd ~;git clone https://github.com/satrobit/ocserv-docker.git`
+ - `docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv:/etc/ocserv -p 443:443/tcp wppurking/ocserv`
  ## Usage
- ...
+ -  Use the default users to connect. (wyatt:616 holly:525)
+ - If iptables is enabled make sure both tcp and udp are open to the public on port 443.
+ - Download a client. [Windows and macOS](https://github.com/openconnect/openconnect-gui), [Android](https://play.google.com/store/apps/details?id=app.openconnect&hl=en), [iOS](https://itunes.apple.com/us/app/cisco-anyconnect/id1135064690?mt=8)
+
+ 
+
+ 
  ## Users
- ...
+
+Add a new user:
+```
+$> docker exec -it $(docker ps -a | grep vpn_run | awk '{print $1}') ocpasswd yourname
+$> Enter password:
+$> Re-enter password:
+```
+
+Removing default users:
+Open `./ocserv/ocpasswd` and remove the lines containing default usernames.
+
  ## To-Do
  
  - [x] Translate README.md
