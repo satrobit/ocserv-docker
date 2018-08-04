@@ -23,6 +23,7 @@ $> Re-enter password:
 ```
 
 Removing default users:
+
 Open `./ocserv/ocpasswd` and remove the lines containing default usernames.
 
  ## To-Do
