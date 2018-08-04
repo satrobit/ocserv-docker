@@ -15,7 +15,7 @@ Run:
     docker run -d --privileged --name ocserv-docker -v ~/ocserv-docker/ocserv_iran:/etc/ocserv -p 443:443/tcp wppurking/ocserv
  
 
-> Be aware that subnets in the ocserv.conf file are the result of merging CIDRS and for performance reason contain IPS from other CIDRs so don't use this for anything important!
+> Be aware that the subnets in the ocserv.conf file are result of merging CIDRs and to increase performance it may contain IPs from other CIDRs so don't use this for anything important!
 > 
 > To make sure you're not leaking any information inside Iran use the default ocserv.conf
 
